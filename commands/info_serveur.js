@@ -1,6 +1,6 @@
 // info_serveur.js
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { CommandInteraction, MessageEmbed, User } = require('discord.js');
+const { CommandInteraction, EmbedBuilder, User } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -34,7 +34,7 @@ module.exports = {
         //const test = interaction.channel.type(GUILD_TEXT)
         //const test = interaction.guild.channels.cache.filter(channel => channel.type("GUILD_TEXT")).size
 
-        const embedinfoserveur = new MessageEmbed()
+        const embedinfoserveur = new EmbedBuilder()
         .setTitle('Information Serveur')
         .setColor('#ff0000')
         .setDescription(

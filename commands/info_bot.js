@@ -1,6 +1,6 @@
 // info_bot.js
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { CommandInteraction, MessageEmbed } = require('discord.js');
+const { CommandInteraction, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -19,7 +19,7 @@ module.exports = {
         const BotTimeCreate = interaction.client.user.createdAt.toLocaleTimeString()
         const BotAvatarUrl = interaction.client.user.avatarURL()
 
-     const embedinfobot = new MessageEmbed()
+     const embedinfobot = new EmbedBuilder()
         .setTitle('Information Bot')
         .setColor('#ff0000')
         .setDescription(

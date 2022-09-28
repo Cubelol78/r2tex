@@ -1,6 +1,6 @@
 //ping.js
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { CommandInteraction,MessageEmbed } = require('discord.js');
+const { CommandInteraction,EmbedBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -12,7 +12,7 @@ module.exports = {
      */
     async execute(interaction) {
 
-        const embedcalcul = new MessageEmbed()
+        const embedcalcul = new EmbedBuilder()
         .setTitle('Calcul du ping !')
 
         await interaction.reply({ content: ".",embeds: [embedcalcul], ephemeral: true });
@@ -21,7 +21,7 @@ module.exports = {
 
         //await interaction.editReply({ content: `Le message a mis ${message.createdTimestamp - interaction.createdTimestamp} ms pour me parvenir et te revenir.\nTon ping est de ${interaction.client.ws.ping} ms.`, ephemeral: true});
 
-        const embedping = new MessageEmbed()
+        const embedping = new EmbedBuilder()
         .setTitle('Ping')
         .setColor('#ff0000')
         .setDescription(

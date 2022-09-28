@@ -1,6 +1,6 @@
 // info_utilisateur.js
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { CommandInteraction, MessageEmbed } = require('discord.js');
+const { CommandInteraction, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -19,7 +19,7 @@ module.exports = {
         const UserTimeCreate = interaction.user.createdAt.toLocaleTimeString()
         const UserBanner = interaction.user.banner
 
-        const embedinfouser = new MessageEmbed()
+        const embedinfouser = new EmbedBuilder()
         .setTitle('Information Utilisateur')
         .setColor('#ff0000')
         .setDescription(
