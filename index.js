@@ -5,9 +5,9 @@
 //=========//
 
 const fs = require('fs');
-const { Discord, Client, Collection, Intents } = require('discord.js');
+const { Discord, Client, Collection, Intents, CommandInteraction, MessageActionRow, MessageButton } = require('discord.js');
 const { token } = require('./config.json');
-const { CommandInteraction, MessageActionRow, MessageButton } = require('discord.js');
+//const { CommandInteraction, MessageActionRow, MessageButton } = require('discord.js');
 
 const handleCommand = require('./helpers/command');
 const handleSelectMenu = require('./helpers/select-menu');
