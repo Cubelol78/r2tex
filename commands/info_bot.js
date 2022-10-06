@@ -18,34 +18,32 @@ module.exports = {
         const BotDateCreate = interaction.client.user.createdAt.toLocaleDateString()
         const BotTimeCreate = interaction.client.user.createdAt.toLocaleTimeString()
         const BotAvatarUrl = interaction.client.user.avatarURL()
+        const FooterURL = 'https://zupimages.net/up/22/03/ws50.jpg'
 
      const embedinfobot = new EmbedBuilder()
         .setTitle('Information Bot')
         .setColor('#ff0000')
-        .setDescription(
-            `  ` 
-            )
-        .setURL('')
-        .setAuthor({
-           name: '',
-           iconURL: '',
-           url: ''
-        })
-        .addField(
-            "Nom du Bot:",`${BotName}`,false
-        )
-        .addField(
-            "ID:",`${BotId}`,false
-        )
-        .addField(
-            "Date de création:",`${BotDateCreate}|${BotTimeCreate}`,false
+        .setURL(`${BotAvatarUrl}`)
+        .addFields(
+            { name: 'Nom du Bot:', value: `${BotName}` },
+            { name: 'ID:', value: `${BotId}` },
+            { name: 'Date de création:', value: `${BotDateCreate}|${BotTimeCreate}` }
         )
         //.addField(
-        //    "Serveur rejoint:",`${GuildCounter}`,false
+        //    "Nom du Bot:",`${BotName}`,false
         //)
+        //.addField(
+        //    "ID:",`${BotId}`,false
+        //)
+        //.addField(
+        //    "Date de création:",`${BotDateCreate}|${BotTimeCreate}`,false
+        //)
+        ////.addField(
+        ////    "Serveur rejoint:",`${GuildCounter}`,false
+        ////)
         .setFooter({
            text: 'Monsieur Propre !!!',
-           iconURL: 'https://zupimages.net/up/22/03/ws50.jpg'
+           iconURL: `${FooterURL}`
        })
         .setThumbnail(
              `${BotAvatarUrl}` 

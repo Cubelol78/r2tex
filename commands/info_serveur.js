@@ -33,6 +33,7 @@ module.exports = {
         //const GuildMember = CounterMemberGuild - test1
         //const test = interaction.channel.type(GUILD_TEXT)
         //const test = interaction.guild.channels.cache.filter(channel => channel.type("GUILD_TEXT")).size
+        const FooterURL = 'https://zupimages.net/up/22/03/ws50.jpg'
 
         const embedinfoserveur = new EmbedBuilder()
         .setTitle('Information Serveur')
@@ -40,42 +41,45 @@ module.exports = {
         .setDescription(
             `  Nom: ${GuildName}\nId: ${GuildId}\nDate de création:\n${DateCreate}|${HeureCreate}  ` 
             )
-        .setURL('')
-        .setAuthor({
-           name: '',
-           iconURL: '',
-           url: ''
-        })
-        .addField(
-            'Membre sur le serveur', `${CounterMemberGuild}`, true
-            )
+        .setURL(`${ServeurIconURL}`)
+        .addFields(
+            { name: 'Membre sur le serveur', value: `${CounterMemberGuild}` },
+            { name: 'Nombre de channel', value: `${CounterChannelGuild}` },
+            { name: 'Nombre de roles', value: `${RoleCount}` },
+            { name: 'Propriétaire du serveur', value: `Pseudo:<@${IDowner}>` },
+            { name: 'AFK', value: `Channel:<#${GuildAfkChannelId}>\nTimeout: ${GuildAfkTimeout} Seconde` },
+            { name: 'Bannière de Guild', value: `${GuildBannerUrl}` }
+        )
         //.addField(
-        //    'Nombre de Bot',`${BotGuild}`,false
+        //    'Membre sur le serveur', `${CounterMemberGuild}`, true
         //    )
+        ////.addField(
+        ////    'Nombre de Bot',`${BotGuild}`,false
+        ////    )
+        ////.addField(
+        ////    "Nombre d'utilisateur connecter",`${MemberGuild}`,false
+        ////    )
         //.addField(
-        //    "Nombre d'utilisateur connecter",`${MemberGuild}`,false
-        //    )
-        .addField(
-            "Nombre de channel",`${CounterChannelGuild}`,true
-        )
-        .addField(
-            "Nombre de roles",`${RoleCount}`,true
-        )
-        .addField(
-            "Propriétaire du serveur",`Pseudo:<@${IDowner}>`,false
-        )
-        .addField(
-            "AFK",`Channel:<#${GuildAfkChannelId}>\nTimeout: ${GuildAfkTimeout} Seconde`,false
-        )
-        .addField(
-            "Bannière de Guild",`${GuildBannerUrl}`,false
-        )
-        //.addField(
-        //    "test",`${test}`,false
+        //    "Nombre de channel",`${CounterChannelGuild}`,true
         //)
+        //.addField(
+        //    "Nombre de roles",`${RoleCount}`,true
+        //)
+        //.addField(
+        //    "Propriétaire du serveur",`Pseudo:<@${IDowner}>`,false
+        //)
+        //.addField(
+        //    "AFK",`Channel:<#${GuildAfkChannelId}>\nTimeout: ${GuildAfkTimeout} Seconde`,false
+        //)
+        //.addField(
+        //    "Bannière de Guild",`${GuildBannerUrl}`,false
+        //)
+        ////.addField(
+        ////    "test",`${test}`,false
+        ////)
         .setFooter({
            text: 'Monsieur Propre !!!',
-           iconURL: 'https://zupimages.net/up/22/03/ws50.jpg'
+           iconURL: `${FooterURL}`
        })
         .setThumbnail(
              ServeurIconURL 

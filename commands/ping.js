@@ -11,6 +11,7 @@ module.exports = {
      * @param {CommandInteraction} interaction 
      */
     async execute(interaction) {
+        const FooterURL = 'https://zupimages.net/up/22/03/ws50.jpg'
 
         const embedcalcul = new EmbedBuilder()
         .setTitle('Calcul du ping !')
@@ -27,15 +28,9 @@ module.exports = {
         .setDescription(
             ` Le message a mis ${message.createdTimestamp - interaction.createdTimestamp} ms pour me parvenir et te revenir.\nTon ping est de ${interaction.client.ws.ping} ms. `
         )
-        .setURL('')
-        .setAuthor({
-            name: '',
-            iconURL: '',
-            url: ''
-         })
         .setFooter({
             text: 'Monsieur Propre !!!',
-            iconURL: 'https://zupimages.net/up/22/03/ws50.jpg'
+            iconURL: `${FooterURL}`
         })
         .setThumbnail(
             `${interaction.user.avatarURL()}` 
