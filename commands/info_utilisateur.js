@@ -37,13 +37,12 @@ module.exports = {
         //=======================//
         //Bannière d'Utilisateur//
         //=====================//
-        const UserSelectBannerCalcul = UserSelect.banner
+        const UserSelectBannerCalcul = UserSelect.bannerURL()
         var UserSelectBanner = ''
-        if ( UserSelectBannerCalcul == null )
+        if ( UserSelectBannerCalcul == null,'undefined' )
             UserSelectBanner = 'Non définis'
-        else
-            if ( UserSelectBannerCalcul == 'undefined' )
-                UserSelectBanner = 'Non définis'
+        //if ( UserSelectBannerCalcul == 'undefined' )
+        //    UserSelectBanner = 'Non définis'
             else
                 UserSelectBanner = `${UserSelectBannerCalcul}`
         
