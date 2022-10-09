@@ -12,7 +12,6 @@ module.exports = {
      */
 
     async execute(interaction) {
-        var ServeurIconURL = interaction.guild.iconURL()
         const IDowner = interaction.guild.ownerId
         const RoleCount = interaction.guild.roles.cache.size
         const HeureCreate = interaction.guild.createdAt.toLocaleTimeString()
@@ -33,7 +32,33 @@ module.exports = {
         const GuildEmojisCounter = interaction.guild.emojis.cache.size
         const GuildRoleList = interaction.guild.roles.cache.map(role => role.toString())
         const GuildUserName = interaction.user.tag
-        const GuildUserAvatar = interaction.user.avatarURL()
+        const DefaultAvatar = 'https://cdn.discordapp.com/embed/avatars/1.png'
+
+        //==========================//
+        //Vérification avatar Guild//
+        //========================//
+        var ServeurIconURLCalcul = interaction.guild.iconURL()
+        var ServeurIconURL = ''
+        if ( ServeurIconURLCalcul == null )
+            ServeurIconURL = `${DefaultAvatar}`
+        else
+            if ( ServeurIconURLCalcul == 'undefined' )
+                ServeurIconURL = `${DefaultAvatar}`
+            else
+                ServeurIconURL = `${ServeurIconURLCalcul}`
+        
+        //=========================//
+        //Vérification avatar user//
+        //=======================//
+        const GuildUserAvatarCalcul = interaction.user.avatarURL()
+        var GuildUserAvatar = ''
+        if ( GuildUserAvatarCalcul == null )
+            GuildUserAvatar = `${DefaultAvatar}`
+        else
+            if ( GuildUserAvatarCalcul == 'undefined' )
+                GuildUserAvatar = `${DefaultAvatar}`
+            else
+                GuildUserAvatar = `${GuildUserAvatarCalcul}`
 
         //==================//
         //Compteur de Boost//
@@ -52,12 +77,12 @@ module.exports = {
         var GuildAdminA2F = ''
         if ( GuildAdminA2FCalcul == null )
             GuildAdminA2F = 'Non définis'
-        else
-            if ( GuildAdminA2FCalcul == 0 )
-                GuildAdminA2F = 'Désactiver'
-            else
-                if ( GuildAdminA2FCalcul == 1 )
-                    GuildAdminA2F = 'Activer'
+        
+        if ( GuildAdminA2FCalcul == 0 )
+            GuildAdminA2F = 'Désactiver'
+            
+        if ( GuildAdminA2FCalcul == 1 )
+            GuildAdminA2F = 'Activer'
 
         //=================//
         //Liste des Emojis//
@@ -66,11 +91,11 @@ module.exports = {
         var GuildEmojisList = ''
         if ( GuildEmojisListCalcul == null )
             GuildEmojisList = 'Non définis'
+        
+        if ( GuildEmojisListCalcul == '' )
+            GuildEmojisList = 'Non définis'
         else
-            if ( GuildEmojisListCalcul == '' )
-                GuildEmojisList = 'Non définis'
-            else
-                GuildEmojisList = `${GuildEmojisListCalcul}`
+            GuildEmojisList = `${GuildEmojisListCalcul}`
         
         //=============//
         //Vérification//

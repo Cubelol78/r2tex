@@ -22,10 +22,10 @@ module.exports = {
         const UserSelect = interaction.options.getUser('user')
         const UserSelectUserName = UserSelect.tag
         const UserSelectID = UserSelect.id
-        const UserSelectAvatarUrl = UserSelect.avatarURL()
         const UserSelectDateCreate = UserSelect.createdAt.toLocaleDateString()
         const UserSelectTimeCreate = UserSelect.createdAt.toLocaleTimeString()
 
+        const DefaultAvatar = interaction.user.defaultAvatarURL
         const AvatarUrl = interaction.user.avatarURL()
         //const UserId = interaction.user.id
         const UserName = interaction.user.tag
@@ -33,6 +33,19 @@ module.exports = {
         //const UserTimeCreate = interaction.user.createdAt.toLocaleTimeString()
         //const UserBanner = interaction.user.bannerURL()
         //const FooterURL = 'https://zupimages.net/up/22/03/ws50.jpg'
+
+        //===================================//
+        //Vérification qu'il y est un avatar//
+        //=================================//
+        const UserSelectAvatarUrlCalcul = UserSelect.avatarURL()
+        var UserSelectAvatarUrl = ''
+        if ( UserSelectAvatarUrlCalcul == null )
+            UserSelectAvatarUrl = `${DefaultAvatar}`
+        else
+            if ( UserSelectAvatarUrlCalcul == 'undefined' )
+                UserSelectAvatarUrl = `${DefaultAvatar}`
+            else
+                UserSelectAvatarUrl = `${UserSelectAvatarUrlCalcul}`
 
         //=======================//
         //Bannière d'Utilisateur//
