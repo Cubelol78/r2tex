@@ -158,7 +158,7 @@ module.exports = {
             { name: 'Paramétre des Notification', value: `${GuildNotification}`, inline: true },
             { name: 'Filtre des contenus', value: `${GuildAnalyse}`, inline: true },
             { name: `Vérification`, value: `${GuildVerification}`, inline: false },
-            { name: `R2tex#5690 a rejoint le`, value: `${BotJoinGuild}`, inline: false },
+            { name: `[BOT]R2tex a rejoint le`, value: `${BotJoinGuild}`, inline: false },
             //{ name: `Emojis`, value: `${test}`, inline: false },
         )
         //.addField(
