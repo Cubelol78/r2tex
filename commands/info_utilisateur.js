@@ -5,30 +5,60 @@ const { CommandInteraction, EmbedBuilder } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('info-utilisateur')
-        .setDescription('Affiche des information Utilisateur'),
+        .setDescription('Affiche des information Utilisateur')
+        .addUserOption(option =>
+            option
+                .setName('user')
+                .setDescription('Recherche un utilisateur')
+                .setRequired(true)
+        )
+        ,
     /**
      * 
      * @param {CommandInteraction} interaction 
      */
 
     async execute(interaction) {
-        const AvatarUrl = interaction.user.avatarURL()
-        const UserId = interaction.user.id
-        const UserName = interaction.user.tag
-        const UserDateCreate = interaction.user.createdAt.toLocaleDateString()
-        const UserTimeCreate = interaction.user.createdAt.toLocaleTimeString()
-        const UserBanner = interaction.user.bannerURL()
-        const FooterURL = 'https://zupimages.net/up/22/03/ws50.jpg'
+        const UserSelect = interaction.options.getUser('user')
+        const UserSelectUserName = UserSelect.tag
+        const UserSelectID = UserSelect.id
+        const UserSelectAvatarUrl = UserSelect.avatarURL()
+        const UserSelectDateCreate = UserSelect.createdAt.toLocaleDateString()
+        const UserSelectTimeCreate = UserSelect.createdAt.toLocaleTimeString()
 
+        const AvatarUrl = interaction.user.avatarURL()
+        //const UserId = interaction.user.id
+        const UserName = interaction.user.tag
+        //const UserDateCreate = interaction.user.createdAt.toLocaleDateString()
+        //const UserTimeCreate = interaction.user.createdAt.toLocaleTimeString()
+        //const UserBanner = interaction.user.bannerURL()
+        //const FooterURL = 'https://zupimages.net/up/22/03/ws50.jpg'
+
+        //=======================//
+        //Bannière d'Utilisateur//
+        //=====================//
+        const UserSelectBannerCalcul = UserSelect.bannerURL()
+        var UserSelectBanner = ''
+        if ( UserSelectBannerCalcul == null )
+            UserSelectBanner = 'Non définis'
+        else
+            if ( UserSelectBannerCalcul == 'undefined' )
+                UserSelectBanner = 'Non définis'
+            else
+                UserSelectBanner = `${UserSelectBannerCalcul}`
+        
+        //================//
+        //Embed info user//
+        //==============//
         const embedinfouser = new EmbedBuilder()
         .setTitle('Information Utilisateur')
         .setColor('#ff0000')
-        .setURL(`${AvatarUrl}`)
+        .setURL(`${UserSelectAvatarUrl}`)
         .addFields(
-            { name: 'Nom:', value: `${UserName}` },
-            { name: 'ID:', value: `${UserId}` },
-            { name: 'Date de création:', value: `${UserDateCreate}|${UserTimeCreate}` },
-            { name: 'Bannière', value: `${UserBanner}` }
+            { name: 'Nom:', value: `${UserSelectUserName}` },
+            { name: 'ID:', value: `${UserSelectID}` },
+            { name: 'Date de création:', value: `${UserSelectDateCreate}, ${UserSelectTimeCreate}` },
+            { name: 'Bannière', value: `${UserSelectBanner}` },
         )
         //.addField(
         //    "Nom:",`${UserName}`,false
@@ -43,11 +73,11 @@ module.exports = {
         //    "Bannière",`${UserBanner}`,false
         //)
         .setFooter({
-           text: 'Monsieur Propre !!!',
-           iconURL: `${FooterURL}`
+           text: `Demandé(e) par ${UserName}`,
+           iconURL: `${AvatarUrl}`
        })
         .setThumbnail(
-             `${AvatarUrl}` 
+             `${UserSelectAvatarUrl}` 
         )
         .setTimestamp()
         await interaction.reply({ embeds: [embedinfouser], ephemeral: false });
