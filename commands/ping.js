@@ -11,12 +11,33 @@ module.exports = {
      * @param {CommandInteraction} interaction 
      */
     async execute(interaction) {
-        const FooterURL = 'https://zupimages.net/up/22/03/ws50.jpg'
+        //const FooterURL = 'https://zupimages.net/up/22/03/ws50.jpg'
+        const AvatarDefault = interaction.user.defaultAvatarURL
+        const UserName = interaction.user.tag
 
+        //=====================//
+        //Avatar d'utilisateur//
+        //===================//
+        const UserAvatarCalcul = interaction.user.avatarURL()
+        var UserAvatar = ''
+        if ( UserAvatarCalcul == null )
+            UserAvatar = `${AvatarDefault}`
+        else
+            if ( UserAvatarCalcul == '' )
+                UserAvatar = `${AvatarDefault}`
+            else
+                if ( UserAvatarCalcul == 'undefined' )
+                    UserAvatar = `${AvatarDefault}`
+                else
+                    UserAvatar = `${UserAvatarCalcul}`
+
+        //==================//
+        //Embed Calcul Ping//
+        //================//
         const embedcalcul = new EmbedBuilder()
         .setTitle('Calcul du ping !')
 
-        await interaction.reply({ content: ".",embeds: [embedcalcul], ephemeral: true });
+        await interaction.reply({ content: ".",embeds: [embedcalcul], ephemeral: false });
 
         const message = await interaction.fetchReply();
 
@@ -29,15 +50,15 @@ module.exports = {
             ` Le message a mis ${message.createdTimestamp - interaction.createdTimestamp} ms pour me parvenir et te revenir.\nTon ping est de ${interaction.client.ws.ping} ms. `
         )
         .setFooter({
-            text: 'Monsieur Propre !!!',
-            iconURL: `${FooterURL}`
+            text: `Demandé(e) par ${UserName}`,
+            iconURL: `${UserAvatar}`
         })
         .setThumbnail(
-            `${interaction.user.avatarURL()}` 
+            `${UserAvatar}` 
        )
         .setTimestamp()
 
         //await interaction.deleteReply();
-        return interaction.editReply({ content:".",embeds: [embedping], ephemeral: true });
+        return interaction.editReply({ content:".",embeds: [embedping], ephemeral: false });
     }
 }
