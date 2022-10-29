@@ -209,7 +209,6 @@ module.exports = {
                 { name: 'Nom:', value: `${ChannelName}`, inline: false },
                 { name: 'ID:', value: `${ChannelID}`, inline: false },
                 { name: 'Type de channel:', value: `${ChannelType}`, inline: true },
-                { name: 'Channel NSFW:', value: `${ChannelNSFW}`, inline: true },
                 { name: 'Date de création:', value: `${ChannelCreateAt}`, inline: false },
             )
             .setColor(
