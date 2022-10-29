@@ -25,4 +25,3 @@ Le bot R2tex est un bot spécialiser pour le serveur discord du même nom, il es
 ## Serveur Discord
 
 [Le serveur Discord !](https://discord.gg/Y85bCqrST4)
-<iframe src="https://discord.com/widget?id=980183243380908042&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
