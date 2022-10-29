@@ -7,18 +7,18 @@ Le bot R2tex est un bot spécialiser pour le serveur discord du même nom, il es
 ## Check List !
 
 **Bot R2tex**
-|---:|:---|
 | Etat | Fonctions du bot |
-| ✔ | Commande Ping |
-| ✔ | Commande Info Serveur |
-| ✔ | Commande Info Utilisateur |
-| ✔ | Commande Info Bot |
-| ✔ | Commande Info Channel |
-| ❌ | Notification Twitch |
-| ❌ | Notification VOD-Youtube |
-| ❌ | Notification Clip-Twitch |
-| ❌ | Logs du Serveur |
-| ❌ | Réaction Roles |
+|:----:|---|
+|  ✔  | Commande Ping |
+|  ✔  | Commande Info Serveur |
+|  ✔  | Commande Info Utilisateur |
+|  ✔  | Commande Info Bot |
+|  ✔  | Commande Info Channel |
+|  ❌ | Notification Twitch |
+|  ❌ | Notification VOD-Youtube |
+|  ❌ | Notification Clip-Twitch |
+|  ❌ | Logs du Serveur |
+|  ❌ | Réaction Roles |
 
 
 | Format        | Syntaxe      | Exemple |
