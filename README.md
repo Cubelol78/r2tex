@@ -6,9 +6,9 @@ Le bot R2tex est un bot spécialiser pour le serveur discord du même nom, il es
 
 ## Check List !
 
-**Bot R2tex**
-| Etat | Fonctions du bot |
+|**Bot R2tex** | |
 |:----:|---|
+| Etat | Fonctions du bot |
 |  ✔  | Commande Ping |
 |  ✔  | Commande Info Serveur |
 |  ✔  | Commande Info Utilisateur |
