@@ -6,7 +6,7 @@
 
 const fs = require('fs');
 const { Discord, Client, Collection, Intents, CommandInteraction, MessageActionRow, MessageButton, GatewayIntentBits } = require('discord.js');
-const { token } = require('./config.json');
+const { token, TwitchChannel } = require('./config.json');
 //const { CommandInteraction, MessageActionRow, MessageButton } = require('discord.js');
 
 const handleCommand = require('./helpers/command');
@@ -33,7 +33,9 @@ for (const file of commandFiles) {
 //=========================//
 
 client.once('ready', () => {
-    console.log('Je suis prêt !');
+    console.log('╔══════════════╦╕')
+    console.log('║Bot R2tex beta║>>Je suis prêt !')
+    console.log('╚══════════════╩╛')
 });
 
 //=========================//

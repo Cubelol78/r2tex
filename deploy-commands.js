@@ -19,7 +19,9 @@ const rest = new REST({ version: '9' }).setToken(process.env.BOT_TOKEN);
 (async () => {
     try {
         await rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands });
-        console.log('Les commandes ont étés enregistrées !')
+        console.log('╔══════════════╦╕')
+        console.log('║Bot R2tex beta║>>Les commandes ont étés enregistrées !')
+        console.log('╚══════════════╩╛')
     } catch (error) {
         console.error(error);
     }
